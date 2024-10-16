@@ -1,3 +1,8 @@
+#QUESTION 1: 
+'''Create a Tkinter application using the concepts of object-oriented
+programming, such as, multiple inheritance, multiple decorators,
+encapsulation, polymorphism, and method overriding, etc.'''
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk  # Import from PIL for image handling
@@ -33,7 +38,7 @@ class MediaPlayerApp(MediaPlayerBase, MediaData):
         super().__init__()
         self.master = master
         self.master.title("Music App")
-        self.master.geometry("600x400")
+        self.master.geometry("600x420")
 
         # Flag to stop playback
         self.stop_flag = False
@@ -76,10 +81,10 @@ class MediaPlayerApp(MediaPlayerBase, MediaData):
         self.add_media_button.pack(pady=10)
 
         # Load images for buttons
-        self.play_img = ImageTk.PhotoImage(Image.open("play.png").resize((40, 40), Image.LANCZOS))
-        self.stop_img = ImageTk.PhotoImage(Image.open("stop.png").resize((40, 40), Image.LANCZOS))
-        self.previous_img = ImageTk.PhotoImage(Image.open("previous.png").resize((40, 40), Image.LANCZOS))
-        self.next_img = ImageTk.PhotoImage(Image.open("next.png").resize((40, 40), Image.LANCZOS))
+        self.play_img = ImageTk.PhotoImage(Image.open("./play.png").resize((40, 40), Image.LANCZOS))
+        self.stop_img = ImageTk.PhotoImage(Image.open("./stop.png").resize((40, 40), Image.LANCZOS))
+        self.previous_img = ImageTk.PhotoImage(Image.open("./previous.png").resize((40, 40), Image.LANCZOS))
+        self.next_img = ImageTk.PhotoImage(Image.open("./next.png").resize((40, 40), Image.LANCZOS))
 
         # Control buttons with images
         self.play_button = tk.Button(self.right_frame, image=self.play_img, command=self.play_media)
