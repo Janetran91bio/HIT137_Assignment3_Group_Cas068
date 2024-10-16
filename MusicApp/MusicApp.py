@@ -100,13 +100,18 @@ class MediaPlayerApp(MediaPlayerBase, MediaData):
         self.next_button.pack(pady=10)
 
         # Volume Control
-        self.volume_slider = tk.Scale(self.right_frame, from_=0, to=1, resolution=0.1, orient=tk.HORIZONTAL, label="Volume")
+        self.volume_slider = tk.Scale(self.right_frame, from_=0, to=1, resolution=0.1, orient=tk.HORIZONTAL,
+                                         label="Volume", command=self.update_volume)
         self.volume_slider.set(1)
         self.volume_slider.pack(pady=10)
 
         # Display for media information
         self.media_info_label = tk.Label(self.right_frame, text="Now Playing: None", bg="white", font=("Helvetica", 12, "bold"))
         self.media_info_label.pack(pady=20)
+    
+    # Method to update the volume dynamically
+    def update_volume(self, volume_value):
+        pygame.mixer.music.set_volume(float(volume_value))
 
     # Method to add media files
     def add_media(self):
